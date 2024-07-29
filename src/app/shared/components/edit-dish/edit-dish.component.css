@@ -1,0 +1,72 @@
+.card1 {
+    background: linear-gradient(rgba(244, 241, 241, 0.8), rgba(244, 241, 241, 0.8)), 
+                url("https://images.pexels.com/photos/2978020/pexels-photo-2978020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    max-width: 1300px;
+    height: auto;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+.card {
+    background-color: rgba(60, 60, 60, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-header {
+    background-color: #333;
+    color: #FFF;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control, .form-control-plaintext {
+    border-color: #FFA500;
+}
+
+.form-control:focus, .form-control-plaintext:focus {
+    border-color: #444;
+    box-shadow: 0 0 0 0.2rem rgba(68, 68, 68, 0.25);
+}
+
+.text-danger {
+    color: #FF5722;
+}
+
+.btn-success {
+    background-color: #FFA500;
+    color: #FFF;
+}
+
+.btn-success:hover {
+    background-color: #FF5722;
+    color: #FFF;
+}
+
+.btn-secondary {
+    background-color: #000;
+    color: #FFF;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #333;
+    color: #FFF;
+}

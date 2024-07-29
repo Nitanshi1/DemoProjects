@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    <div class="card1 shadow-lg">
+      <div class="card-header text-center">
+        Update Your Food List
+      </div>
+      <div class="card-body">
+        <form [formGroup]="foodForm" (ngSubmit)="update()">
+          <div class="form-group">
+            <label for="dishname">Dish Name</label>
+            <input type="text" readonly class="form-control-plaintext" id="dishname" [value]="foodForm.get('dishname')?.value" />
+            <div *ngIf="foodForm.get('dishname')?.invalid && (foodForm.get('dishname')?.dirty || foodForm.get('dishname')?.touched)">
+              <small class="text-danger">Dish name is required.</small>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input id="description" formControlName="description" class="form-control" />
+            <div *ngIf="foodForm.get('description')?.invalid && (foodForm.get('description')?.dirty || foodForm.get('description')?.touched)">
+              <small class="text-danger">Description is required.</small>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input id="price" formControlName="price" class="form-control" />
+            <div *ngIf="foodForm.get('price')?.invalid && (foodForm.get('price')?.dirty || foodForm.get('price')?.touched)">
+              <small class="text-danger">Price is required and must be a valid number.</small>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="image">Image URL</label>
+            <input id="image" type="file" (change)="onfile($event)" class="form-control" #image />
+            <div *ngIf="foodForm.get('image')?.invalid && (foodForm.get('image')?.dirty || foodForm.get('image')?.touched)">
+              <small class="text-danger">Image URL is required.</small>
+            </div>
+          </div>
+  
+          <button type="submit" class="btn btn-success btn-block" [disabled]="foodForm.invalid">
+            Update Food
+          </button>
+          <hr>
+          <button class="btn btn-secondary btn-block" type="button" (click)="goback()">Back</button>
+        </form>
+      </div>
+    </div>
+  </div>

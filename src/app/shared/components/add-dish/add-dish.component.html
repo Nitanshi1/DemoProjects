@@ -1,0 +1,135 @@
+<div class="card1 shadow-lg">
+  <div class="container mt-5">
+    <div class="card shadow-lg">
+      <div class="card-header text-center">Add Your Food</div>
+      <div class="card-body">
+        <form [formGroup]="foodForm" (ngSubmit)="add()">
+          <div class="form-group">
+            <label for="dishname">Dish Name</label>
+            <input
+              id="dishname"
+              formControlName="dishname"
+              class="form-control"
+              #dishname
+            />
+            <div
+              *ngIf="
+                foodForm.get('dishname')?.invalid &&
+                (foodForm.get('dishname')?.dirty ||
+                  foodForm.get('dishname')?.touched)
+              "
+            >
+              <small class="text-danger">Dish name is required.</small>
+              <small
+                class="text-danger"
+                *ngIf="foodForm.get('dishname')?.errors?.['minlength']"
+                >Dish name must be at least 3 characters long.</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input
+              id="description"
+              formControlName="description"
+              class="form-control"
+              #description
+            />
+            <div
+              *ngIf="
+                foodForm.get('description')?.invalid &&
+                (foodForm.get('description')?.dirty ||
+                  foodForm.get('description')?.touched)
+              "
+            >
+              <small class="text-danger">Description is required.</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input
+              id="price"
+              formControlName="price"
+              class="form-control"
+              #price
+            />
+            <div
+              *ngIf="
+                foodForm.get('price')?.invalid &&
+                (foodForm.get('price')?.dirty || foodForm.get('price')?.touched)
+              "
+            >
+              <small class="text-danger"
+                >Price is required and must be a valid number.</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Image URL</label>
+            <input
+              id="image"
+              type="file"
+              (change)="onfile($event)"
+              class="form-control"
+              #image
+            />
+            <div
+              *ngIf="
+                foodForm.get('image')?.invalid &&
+                (foodForm.get('image')?.dirty || foodForm.get('image')?.touched)
+              "
+            >
+              <small class="text-danger">Image URL is required.</small>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-success btn-block"
+            (click)="openModal(content)"
+            [disabled]="foodForm.invalid"
+          >
+            Add Food
+          </button>
+          <hr />
+          <button
+            class="btn btn-secondary btn-block"
+            type="button"
+            (click)="goback()"
+          >
+            Back
+          </button>
+        </form>
+
+        <ng-template #content let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+              Added Successfully
+            </h4>
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="modal.dismiss('Cross click')"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div>Added Successfully...</div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-outline-dark"
+              (click)="modal.close('Save click')"
+            >
+              Save
+            </button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
